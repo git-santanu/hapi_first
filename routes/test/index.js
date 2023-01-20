@@ -62,6 +62,21 @@ const router = [
     },
   },
   {
+    path: '/delete/{id}',
+    method: 'GET',
+    options: {
+      handler: Test.delete,
+      description:'Delete record',
+      notes: 'Delete and see the result',
+      tags: ["api"],
+      validate: {
+        params: Joi.object({
+          id: Joi.number().required(),
+        }),
+      }
+    }
+  },
+  {
     path: "/file-upload",
     method: "post",
     options: {

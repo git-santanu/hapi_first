@@ -113,7 +113,20 @@ exports.update = async (req, res) => {
     console.log(error);
   }
 };
-
+exports.delete = async(req,res)=>{
+  try {
+    const { id } = req.params;
+    let deleteUser = users.splice(users.findIndex(item=>item.id===id),1);
+    let details = {
+      deleteUser,
+      message: "Detail deleted successfully",
+    };
+    console.log(deleteUser);
+    return details
+  } catch (error) {
+    console.log(error)
+  }
+}
 exports.fileUpload = async (req, res) => {
   try {
     fs.createWriteStream(
